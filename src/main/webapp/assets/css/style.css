@@ -1,0 +1,83 @@
+body {
+    background-color: silver;
+    font-family: monospace;
+}
+nav {
+    background-color: rgba(26, 146, 56, 0.925); 
+    color: white;
+}
+#logo {
+    margin-right: 0.5vw;
+    /* width: 32px; */
+    height: 40px;
+}
+#publish {
+    margin-right: 35vw;
+}
+#ofertar {
+    margin-left: 47vw;
+}
+img.avatar {
+    width: 30px;
+    height: 30px;
+    border-radius: 5px; 
+}
+#sidebar {
+    background-color: whitesmoke; 
+    margin: 1vh 0vh 1vh 0vh; 
+    padding-top: 1vw;
+}
+#sidebarsubmit {
+    margin-top: 1vw;
+}
+label.error {
+    color: red;
+}
+p.disclaim {
+    font-size: 1vw;
+}
+header {
+    margin: 1vh 0vw 1vh 0vh; 
+    text-align: center;
+}
+h1 {
+    font-size: 4vw;
+    color: hsl(0, 1%, 21%);
+}
+article.intro {
+    text-align: center; 
+    font-size: 1.5vw;
+}
+h2 {
+    text-align: center;
+    margin: 1vh 0vw 1vh 0vh;
+    font-size: 2vw;
+}
+p {
+    text-align: center;
+    font-size: 1.5vw;
+}
+footer {
+    text-align: center; 
+    color: gray; 
+    margin-top: 1vw; 
+    font-size: 1.5vw;
+}
+.needs-validation { 
+    margin: 1vw 5vw 0vw 5vw;
+}
+.card {
+    width: 18rem;
+    margin: 1vh 1vw 0vh 1vw;
+}
+.card .card-img-top {
+    background-size: contain;
+    margin-top: 1.5vh;
+}
+#novedades {
+    text-align: center;
+    font-size: 2vw;
+}
+#intro {
+    margin-top: 2vh;
+}

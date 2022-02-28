@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bean:beans
+	xmlns:bean="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://www.springframework.org/schema/security"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/security 
+	https://www.springframework.org/schema/security/spring-security.xsd">
+
+	<http auto-config="true">
+		<intercept-url pattern="/" access="permitAll" />
+		<intercept-url pattern="/admin"
+			access="hasAnyAuthority('2')" />
+		<intercept-url pattern="/crearcapacitacion"
+			access="hasAnyAuthority('2','1')" />
+		<intercept-url pattern="/listarcapacitacion"
+			access="hasAnyAuthority('2','1')" />
+		<intercept-url pattern="/listarusuario"
+			access="hasAnyAuthority('2')" />
+		<intercept-url pattern="/crearusuario"
+			access="hasAnyAuthority('2')" />
+			
+		<intercept-url pattern="/api/*" access="hasAnyAuthority('2')"/>
+
+		<form-login login-page="/login"
+			authentication-failure-url="/error" username-parameter="uname"
+			password-parameter="psw" />
+		<csrf disabled="true" />
+		<logout logout-success-url="/login" />
+
+	</http>
+
+	<authentication-manager>
+		<authentication-provider>
+			<password-encoder hash="bcrypt" />
+			<jdbc-user-service data-source-ref="ds"
+				users-by-username-query="SELECT uname, psw, 1 as enabled FROM usuario WHERE uname = ?"
+				authorities-by-username-query="SELECT uname, tipousuario as authority FROM usuario WHERE uname = ?" />
+
+			<!-- <user-service> <user name="admin" authorities="ADMIN" password="$2a$10$jwThESRyafrAdgr6kHV4AetOgeJQpid2G9n1EF5pVsIcMLhV9W1u6"/> 
+				</user-service> -->
+		</authentication-provider>
+	</authentication-manager>
+
+</bean:beans>
